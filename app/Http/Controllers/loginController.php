@@ -19,7 +19,6 @@ class loginController extends Controller
 
         if (Auth::guard('crud')->attempt($input)) {
             $request->session()->regenerate();                         //-------------------------->generate session
-            // dd(124345);
             return redirect()->route('crud.dashboard');
         }
 
