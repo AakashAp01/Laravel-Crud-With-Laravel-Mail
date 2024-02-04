@@ -31,9 +31,11 @@ $authdata=Auth::guard('crud')->user()
 
                         <img style="border: 3px solid rgb(255, 255, 255)" src="/CrudImages/{{ $authdata->image }}" alt="" height="40" width="40"
                         class="rounded-circle"> <span class="text-white"><b>@_{{ $authdata->name }}</b></span>
+
                     </div>
 
             <div class="conatiner">
+                {{-- <a href="{{route('mail')}}" class="btn btn-light">Send-mail</a> --}}
                 <a href="{{ route('partnerindex') }}" class="btn btn-warning" style="margin-right: 40px">Partners <i class="bi bi-people"></i></a>
                 <div class="  dropdown md-4 me-5 btn-group dropstart border border-danger">
                     <button type="button" class="btn  text-light text-bold " data-bs-toggle="dropdown">

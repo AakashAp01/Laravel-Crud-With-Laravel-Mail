@@ -7,6 +7,8 @@ use App\Models\Crud; // add class for store image in database
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Crypt; //for data encrypt and decrypt
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\myMail;
 
 class Crudcontroller extends Controller
 {
@@ -24,6 +26,7 @@ class Crudcontroller extends Controller
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function store(request $request)
     {
+        $mailto=$request->email;
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
@@ -44,7 +47,9 @@ class Crudcontroller extends Controller
         $crud->password =\Hash::make($request->password);
         // $crud->phone =Crypt::encrypt( $request->password);// transfer store data in encrypt  //////important///// add Crypt class on top
         $crud->save();
-        return redirect()->route('crud.dashboard')->withsuccess('User stored...');
+        Mail::to($mailto)->send(new myMail());
+
+        return redirect()->route('crud.dashboard')->withsuccess('User Created and Email Notification'.$mailto);
 
     }
 

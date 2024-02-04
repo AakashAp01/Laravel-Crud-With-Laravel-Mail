@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\mailController;
 use App\Http\Controllers\PartnerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Crudcontroller;
@@ -38,5 +39,6 @@ Route::middleware('auth:crud')->group(function () {
     //partners route
     Route::get('/partnerindex', [PartnerController::class, 'index'])->name('partnerindex');
     Route::post('/storpartner', [PartnerController::class, 'storpartner'])->name('storepartner');
+    // Route::get('/mail', [mailController::class, 'mail'])->name('mail');
 
 });
