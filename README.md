@@ -10,7 +10,7 @@
 ## About This Project
 
 This project demonstrates a simple Laravel application with the following features:  
-- **CRUD Operations** for managing resources.  
+- **User CRUD Operations**.  
 - **Email Sending** using Laravel Mail.  
 
 ### Features
